@@ -8,14 +8,27 @@
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <?php
     session_start();
-    if (  (!isset($_SESSION['email']) == true  ) && (!isset($_SESSION['senha']) == true)) {
+    // Lógica com !
+    // if ((!isset($_SESSION['email']) == true) &&
+    //     (!isset($_SESSION['senha']) == true)
+    // ) {
+    //     echo "
+    //     <script>
+    //     alert('Acesso restrito!');
+    //     window.location.href = 'index.php';
+    //     </script>b
+    //     ";
+    // };
+
+    // Lógica sem !
+    if ((isset($_SESSION["login"])) == false && (isset($_SESSION["senha"])) == false) {
         echo "
         <script>
         alert('Acesso restrito!');
         window.location.href = 'index.php';
-        </script>
+        </script>b
         ";
-    };
+    }
     ?>
 </head>
 
@@ -28,8 +41,8 @@
         <?php include "php/banner.php" ?>
 
         <section id="corpo">
-            Aqui é o menu principal!
-            <?php
+        <h1>Sobre a empresa |Perfil:</h1>
+        <?php
          include_once "php/link.php"
         ?>
 
